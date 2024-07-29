@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>自注意力機制手寫字生成模型</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.lp.css">
+	<link rel="stylesheet" type="text/css" href="css/landing-page.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+	<link rel="stylesheet" type="text/css" href="css/styleTest.css">
+</head>
+
+<body>
+	<!----------------------------------- Dividing line----------------------------------------------------->
+	
+	<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="https://tjhsieh.github.io/">
+                ♪ 國立臺北科技大學 ♪ 資訊工程系 ♪ 計算機圖學實驗室 ♪</a>
+	    </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#top">回頂端</a></li>
+		    <li><a href="#demo1">摘要</a></li>
+		    <li><a href="#demo2">系統概要與生成結果</a></li>
+                    <li><a href="#demo3">手寫字體製作流程</a></li>
+                    <li><a href="#demo4">影片</a></li>	
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="top"></a>
+    <div class="intro-header">
+        <div class="container" style="height:350px;">
+
+            <div class="row">
+                <div class="col-lg-12" style="height:300px;">
+                    <div class="intro-message" style="position: relative;padding-top: 0%;padding-bottom: 70%;">
+                        <h1>自注意力機制手寫字生成模型</h1>
+                        <h2>Self-attention Handwriting Generative Model</h2>
+<!--                         <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="demo.html" class="btn btn-default btn-lg"> 
+                                    <span class="network-name" style="font-weight: 900;">進入系統</span>
+                                </a>
+                            </li>
+            			    <li>
+
+            				    <img src="https://raw.githubusercontent.com/t109598054/VR360_classroom/e00c28d19318a4c965b677af5bd7f2dbd4b8dd1d/img/svg/fang.svg" width="100" />
+            			    </li>
+                        </ul> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+	<a  name="demo1"></a>
+	<div class="content-section-a">
+        <div class="container">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">摘要</h2>
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                   
+			<p class="lead">字體生成模型的技術近年來取得顯著進展，比如生成對抗網路模型、擴散模型、變換器模型，本論文提出一個生成對抗網絡（GAN）架構的字體生成模型 zi2zi-Self-Attention，在字到字 zi2zi 模型的編碼器和解碼器中新增了殘差塊（ResNet Block）和自注意力層（Self-Attention Layer），以提升模型對複雜字體細節的捕捉能力，旨在模仿書寫者的風格，同時保留來源圖像的內容並創建字體。此外，本研究引入了感知損失（Perceptual Loss），利用VGG-19網絡提取的高層次特徵進行比較，從而提升生成字體的視覺一致性和質量。為了提高模型的收斂速度和穩定性，訓練過程中採用了Adam優化器，並設定適當的學習率和Beta參數。在模型訓練和評估階段，除了zi2zi和zi2zi-Self-Attention，本研究另外選擇了四種主流的字體生成模型 MX-Font、CF-Font、SDT、Font Diffuser 一同進行比較，這些模型與 zi2zi 架構有所不同，專注於內容字符與書寫風格的特徵提取而不單純使用對抗生成網路進行字體生成，其複雜度較高且需要更多的訓練數據。實驗結果顯示 zi2zi-Self-Attention 在生成高字體品質和視覺效果手寫字體方面的潛力及有效性。</p>
+                </div>
+                <div class="col-lg-6 col-lg-offset-1 col-sm-6">
+					<br><br><br>
+                    <img class="img-responsive" src="img/archi.JPG" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-a -->
+
+    <a  name="demo2"></a>   
+    <div class="content-section-a">
+
+        <div class="container">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">系統概要與生成結果</h2>
+                
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">                    
+                    
+                    <p class="lead">本研究將 zi2zi 架構作修改，使用我的手寫字體作為風格字體、思源黑體作為內容字體，選擇教育部常用漢字 4808 中的 2404 字做為訓練，並生成 big5 所有手寫風格字符。</p>
+                    <p class="lead">zi2zi 和本研究的 zi2zi-self-attention 生成結果如圖所示，最下排為 ground truth。</p>
+
+                    <a href="chiao_zi2zi_self_attention.ttf" class="btn btn-default btn-lg" download="chiao.ttf">
+                        <span class="network-name" style="font-weight: 900;">我的字體下載</span>
+                    </a>
+                </div>
+                <div class="col-lg-5 col-lg-offset-1 col-sm-6">
+
+                    <img class="img-responsive" src="img/zi2zi_cp2.JPG" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <a  name="demo3"></a>  
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading">手寫字體製作流程（PPT）</h3>
+
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/10dENzg1fKozwrstM5fFH_G52N8co-KqX/edit?usp=sharing&ouid=113798501637465505835&rtpof=true&sd=true" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">1 稿紙製作</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/1xAxAM9VtMXri3aumc-pK7ap6sX_mdbmv/edit?usp=sharing&ouid=113798501637465505835&rtpof=true&sd=true" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">2-1 校正切割 (paper)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/1aS8iFJ-Rrve018IK8mV-jHN1nRjZhDOj30E5_l12qJo/edit?usp=sharing" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">2-2 校正切割 (ipad)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/10vIRO3PsxVwWSRv_ORqu02rT2uzvARHKGdBQZDA8Ufs/edit?usp=sharing" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">3 zi2zi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/1ZVv7Kc52qe-K3h0BOCFSSRpktXv6FIwZa4aZFVkgoFE/edit?usp=sharing" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">4 向量化</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/presentation/d/1Hb2BNUxNomhLVGQjHSCKVtNhxwLIaiubBYdrTmACmow/edit?usp=sharing" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">5 打包字體</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <BR>
+                    <h3 class="section-heading">手寫字體製作流程（Github）</h3>
+
+                    <ul class="list-inline intro-social-buttons">
+                        <li>
+                            <a href="https://github.com/chiaoooo/01_script" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">1 稿紙製作</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chiaoooo/02_crop_paper" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">2-1 校正切割 (paper)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chiaoooo/02_crop_ipad" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">2-2 校正切割 (ipad)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chiaoooo/03_zi2zi" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">3 zi2zi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chiaoooo/04_SVG" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">4 向量化</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/chiaoooo/05_Font" class="btn btn-default btn-lg" target="_blank"> 
+                                <span class="network-name" style="font-weight: 900;">5 打包字體</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+
+
+
+    <!-- /.content-section-a -->
+	
+    <!-- /.content-section-a -->
+
+    <a name="demo4"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">簡介影片</h2>
+                    <p class="lead">本論文之說明影片，包括研究背景概述、研究中所使用的生成模型方法與生成結果，以及生成結果的相似度計算比對、字體打包及使用。</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <br><br><br>
+                    <!-- <img class="img-responsive" src="img/phones.png" alt=""> -->
+                    <video controls autoplay width="1080" class="img-responsive" src="video/zi2zi-self-attention.mp4"></video>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+	
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+	    <div class="row">
+                <div class="col-lg-12">
+                    <hr class="section-heading-spacer">
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright text-muted small"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="創用 CC 授權條款" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright text-muted small">
+			論文題目，
+
+            由<a xmlns:cc="http://creativecommons.org/ns#" href="http://www.cc.ntut.edu.tw/~tjhsieh/" property="cc:attributionName" rel="cc:attributionURL">國立臺北科技大學資訊工程系計算機圖學實驗室</a>製作，
+			以<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">創用CC 姓名標示-非商業性-相同方式分享 4.0 國際 授權條款</a>釋出。
+			姓名標示-非商業性-相同方式分享 CC BY-NC-SA
+			本授權條款允許使用者對本著作進行重混、調整，以及依原著作建立新著作，但僅限於非商業目的之使用。唯使用者就其新創著作，必須按照表彰
+			原作：國立臺北科技大學資訊工程系計算機圖學實驗室，並且將產出之新創著作採用相同的授權條款釋出。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="lib/jquery-2.1.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="lib/bootstrap.min.js"></script>
+	
+</body>
+</html>
