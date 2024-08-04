@@ -75,23 +75,24 @@
     <!-- /.intro-header -->
 
     <!-- Page Content -->
-	<a  name="demo1"></a>
-	<div class="content-section-a">
+    <a name="demo1"></a>
+    <div class="content-section-a">
         <div class="container">
             <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
             <h2 class="section-heading">摘要</h2>
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
-                   
-			<p class="lead">字體生成模型的技術近年來取得顯著進展，比如生成對抗網路模型、擴散模型、變換器模型，本論文提出一個生成對抗網絡（GAN）架構的字體生成模型 zi2zi-Self-Attention，在字到字 zi2zi 模型的編碼器和解碼器中新增了殘差塊（ResNet Block）和自注意力層（Self-Attention Layer），以提升模型對複雜字體細節的捕捉能力，旨在模仿書寫者的風格，同時保留來源圖像的內容並創建字體。此外，本研究引入了感知損失（Perceptual Loss），利用VGG-19網絡提取的高層次特徵進行比較，從而提升生成字體的視覺一致性和質量。為了提高模型的收斂速度和穩定性，訓練過程中採用了Adam優化器，並設定適當的學習率和Beta參數。在模型訓練和評估階段，除了zi2zi和zi2zi-Self-Attention，本研究另外選擇了四種主流的字體生成模型 MX-Font、CF-Font、SDT、Font Diffuser 一同進行比較，這些模型與 zi2zi 架構有所不同，專注於內容字符與書寫風格的特徵提取而不單純使用對抗生成網路進行字體生成，其複雜度較高且需要更多的訓練數據。實驗結果顯示 zi2zi-Self-Attention 在生成高字體品質和視覺效果手寫字體方面的潛力及有效性。</p>
+                    <p class="lead">字體生成模型的技術近年來取得顯著進展，比如生成對抗網路模型、擴散模型、變換器模型，本論文提出一個生成對抗網絡（GAN）架構的字體生成模型 zi2zi-Self-Attention，在字到字 zi2zi 模型的編碼器和解碼器中新增了殘差塊（ResNet Block）和自注意力層（Self-Attention Layer），以提升模型對複雜字體細節的捕捉能力，旨在模仿書寫者的風格，同時保留來源圖像的內容並創建字體。此外，本研究引入了感知損失（Perceptual Loss），利用VGG-19網絡提取的高層次特徵進行比較，從而提升生成字體的視覺一致性和質量。為了提高模型的收斂速度和穩定性，訓練過程中採用了Adam優化器，並設定適當的學習率和Beta參數。在模型訓練和評估階段，除了zi2zi和zi2zi-Self-Attention，本研究另外選擇了四種主流的字體生成模型 MX-Font、CF-Font、SDT、Font Diffuser 一同進行比較，這些模型與 zi2zi 架構有所不同，專注於內容字符與書寫風格的特徵提取而不單純使用對抗生成網路進行字體生成，其複雜度較高且需要更多的訓練數據。實驗結果顯示 zi2zi-Self-Attention 在生成高字體品質和視覺效果手寫字體方面的潛力及有效性。</p>
                 </div>
                 <div class="col-lg-6 col-lg-offset-1 col-sm-6">
-					<br><br><br>
-                    <img class="img-responsive" src="img/archi.JPG" alt="">
+                    <br><br><br>
+                    <a href="img/archi.jpg" target="_blank">
+                        <img class="img-responsive" src="img/archi.jpg" alt="Image">
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
         <!-- /.container -->
     </div>
     <!-- /.content-section-a -->
@@ -110,13 +111,14 @@
                     <p class="lead">本研究將 zi2zi 架構作修改，使用我的手寫字體作為風格字體、思源黑體作為內容字體，選擇教育部常用漢字 4808 中的 2404 字做為訓練，並生成 big5 所有手寫風格字符。</p>
                     <p class="lead">zi2zi 和本研究的 zi2zi-self-attention 生成結果如圖所示，最下排為 ground truth。</p>
 
-                    <a href="chiao_zi2zi_self_attention.ttf" class="btn btn-default btn-lg" download="chiao.ttf">
+                    <a href="chiao.ttf" class="btn btn-default btn-lg" download="chiao.ttf">
                         <span class="network-name" style="font-weight: 900;">我的字體下載</span>
                     </a>
                 </div>
                 <div class="col-lg-5 col-lg-offset-1 col-sm-6">
-
-                    <img class="img-responsive" src="img/zi2zi_cp2.JPG" alt="">
+                    <a href="img/zi2zi_cp2.jpg" target="_blank">
+                        <img class="img-responsive" src="img/zi2zi_cp2.jpg" alt="">
+                    </a>
                 </div>
             </div>
 
@@ -131,37 +133,52 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-sm-6">
+                <div class="col-lg-12 col-sm-12">
                     <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
+
                     <h3 class="section-heading">手寫字體製作流程（PPT）</h3>
 
-                    <div class="intro-social-buttons">
+
                         <button onclick="location.href='https://docs.google.com/presentation/d/10dENzg1fKozwrstM5fFH_G52N8co-KqX/edit?usp=sharing&ouid=113798501637465505835&rtpof=true&sd=true'" class="btn btn-default btn-lg btn-custom">1 稿紙製作</button>
                         <button onclick="location.href='https://docs.google.com/presentation/d/1xAxAM9VtMXri3aumc-pK7ap6sX_mdbmv/edit?usp=sharing&ouid=113798501637465505835&rtpof=true&sd=true'" class="btn btn-default btn-lg btn-custom">2-1 校正切割 (paper)</button>
                         <button onclick="location.href='https://docs.google.com/presentation/d/1aS8iFJ-Rrve018IK8mV-jHN1nRjZhDOj30E5_l12qJo/edit?usp=sharing'" class="btn btn-default btn-lg btn-custom">2-2 校正切割 (ipad)</button>
-                    </div>
 
-                    <div class="intro-social-buttons">
                         <button onclick="location.href='https://docs.google.com/presentation/d/10vIRO3PsxVwWSRv_ORqu02rT2uzvARHKGdBQZDA8Ufs/edit?usp=sharing'" class="btn btn-default btn-lg btn-custom">3 zi2zi-self-attention</button>
                         <button onclick="location.href='https://docs.google.com/presentation/d/1ZVv7Kc52qe-K3h0BOCFSSRpktXv6FIwZa4aZFVkgoFE/edit?usp=sharing'" class="btn btn-default btn-lg btn-custom">4 向量化</button>
                         <button onclick="location.href='https://docs.google.com/presentation/d/1Hb2BNUxNomhLVGQjHSCKVtNhxwLIaiubBYdrTmACmow/edit?usp=sharing'" class="btn btn-default btn-lg btn-custom">5 打包字體</button>
-                    </div>
+
 
                     <BR>
                     <h3 class="section-heading">手寫字體製作流程（Github）</h3>
 
-                    <div class="intro-social-buttons">
+
                         <button onclick="location.href='https://github.com/chiaoooo/01_script'" class="btn btn-default btn-lg btn-custom" target="_blank">1 稿紙製作</button>
                         <button onclick="location.href='https://github.com/chiaoooo/02_crop_paper'" class="btn btn-default btn-lg btn-custom" target="_blank">2-1 校正切割 (paper)</button>
                         <button onclick="location.href='https://github.com/chiaoooo/02_crop_ipad'" class="btn btn-default btn-lg btn-custom" target="_blank">2-2 校正切割 (ipad)</button>
-                    </div>
 
-                    <div class="intro-social-buttons">
                         <button onclick="location.href='https://github.com/chiaoooo/03_zi2zi'" class="btn btn-default btn-lg btn-custom" target="_blank">3 zi2zi-self-attention</button>
                         <button onclick="location.href='https://github.com/chiaoooo/04_SVG'" class="btn btn-default btn-lg btn-custom" target="_blank">4 向量化</button>
                         <button onclick="location.href='https://github.com/chiaoooo/05_Font'" class="btn btn-default btn-lg btn-custom" target="_blank">5 打包字體</button>
-                    </div>
+
+
+                    <BR>
+                    <h3 class="section-heading">手寫字體製作流程操作影片</h3>
+
+
+                        <button onclick="location.href='https://youtu.be/XkJ5TYJT-tg'" class="btn btn-default btn-lg btn-custom" target="_blank">1 稿紙製作</button>
+                        <button onclick="location.href='https://youtu.be/AQWulqFws3Q'" class="btn btn-default btn-lg btn-custom" target="_blank">2-1 校正切割 (paper)</button>
+                        <button onclick="location.href='https://youtu.be/EzJHqZZ4J3E'" class="btn btn-default btn-lg btn-custom" target="_blank">2-2 校正切割 (ipad)</button>
+
+                        <button onclick="location.href='https://github.com/chiaoooo/03_zi2zi'" class="btn btn-default btn-lg btn-custom" target="_blank">3 zi2zi-self-attention</button>
+                        <button onclick="location.href='https://youtu.be/LtfXpntG1qQ'" class="btn btn-default btn-lg btn-custom" target="_blank">4 向量化</button>
+                        <button onclick="location.href='https://youtu.be/z_12z-uh3Po'" class="btn btn-default btn-lg btn-custom" target="_blank">5 打包字體</button>
+
+                </div>
+
+                <div class="col-lg-12 col-sm-12">
+                    <a href="img/my_writing.jpg" target="_blank">
+                        <img class="img-responsive" style="margin-top: 40px;" src="img/my_writing.jpg" width="600">
+                    </a>
                 </div>
             </div>
 
@@ -209,19 +226,41 @@
             <div class="clearfix"></div>
             <h2 class="section-heading">字體範例</h2>
             <div class="row">
-                <div class="col-lg-4 col-sm-4">              
+                <div class="col-lg-6 col-sm-6">              
                     <p class="failed-font bigger" style="color: red">失敗的英數字符範例：</p>
                     <p class="failed-font" style="font-size: 35px">zi2zi-self-attention<br> 12345678</p>
+                </div>
+                <div class="col-lg-6 col-sm-6">   
                     <p class="bigger" style="color: green">成功的英數字符範例：</p>
                     <p style="font-size: 35px">zi2zi-self-attention<br> 12345678</p>
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-sm-4">
-                    <img class="img-responsive" src="img/circle1.jpg" alt="">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">  
+                    <a href="img/circle1.jpg" target="_blank">
+                        <img class="img-responsive" src="img/circle1.jpg" alt="">
+                    </a>
                 </div>
 
-                <div class="col-lg-4 col-sm-4">
-                    <img class="img-responsive" src="img/my1.jpg" alt="">
+                <div class="col-lg-6 col-sm-6">
+                    <a href="img/my1.jpg" target="_blank">
+                        <img class="img-responsive" src="img/my1.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-lg-6 col-sm-6">  
+                    <a href="img/circle_c.jpg" target="_blank">
+                        <img class="img-responsive" src="img/circle_c.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="col-lg-6 col-sm-6">
+                    <a href="img/my_c.png" target="_blank">    
+                        <img class="img-responsive" src="img/my_c.png" alt="">
+                    </a>
                 </div>
             </div>
         </div>
@@ -304,4 +343,6 @@
         font-size: 25px;
         font-weight: 400;
     }
+
+    
 </style>
